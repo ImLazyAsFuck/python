@@ -1,13 +1,13 @@
-number = 10
-float_number = 10.5
-string = "Hello, World!"
-boolean = True
+NUMBER = 10
+FLOAT_NUMBER = 10.5
+STRING = "Hello, World!"
+BOOLEAN = True
 
-print("Số nguyên:", number)
-print("Kiểu dữ liệu: ", type(number))
-print("Số thực:", float_number)
-print("Kiểu dữ liệu: ", type(float_number))
-print("Chuỗi ký tự:", string)
-print("Kiểu dữ liệu: ", type(string))
-print("Giá trị boolean:", boolean)
-print("Kiểu dữ liệu: ", type(boolean))
+print("Số nguyên:", NUMBER)
+print("Kiểu dữ liệu: ", type(NUMBER))
+print("Số thực:", FLOAT_NUMBER)
+print("Kiểu dữ liệu: ", type(FLOAT_NUMBER))
+print("Chuỗi ký tự:", STRING)
+print("Kiểu dữ liệu: ", type(STRING))
+print("Giá trị boolean:", BOOLEAN)
+print("Kiểu dữ liệu: ", type(BOOLEAN))
