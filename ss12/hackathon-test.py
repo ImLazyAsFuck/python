@@ -23,7 +23,7 @@ def classify(avg):
     """_classify_
 
     Args:
-        avg (_number_): _the_avg_score_
+        avg (_float_): _the_avg_score_
 
     Returns:
         _str_: _classification based on avg score_
