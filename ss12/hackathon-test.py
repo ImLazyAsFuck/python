@@ -7,10 +7,27 @@ students = []
 DATA_FILE = "data.json"
 
 def score_validation(score, name):
+    """_score_validation_
+
+    Args:
+        score (_float_): _score_to_validate_
+        name (_str_): _name_the_subject_
+
+    Raises:
+        ValueError: _print_the_error_
+    """
     if score < 0 or score > 10:
         raise ValueError(f"{name} score must be between 0 and 10")
 
 def classify(avg):
+    """_classify_
+
+    Args:
+        avg (_number_): _the_avg_score_
+
+    Returns:
+        _str_: _classification based on avg score_
+    """
     if avg >= 8:
         return 'Excellent'
     elif avg >= 6.5:
@@ -21,6 +38,8 @@ def classify(avg):
         return 'Poor'
 
 def load_from_file():
+    """_load_from_file_
+    """
     global students
     if not os.path.exists(DATA_FILE):
         students = []
@@ -33,6 +52,8 @@ def load_from_file():
             students = []
 
 def display_students():
+    """_display_students_
+    """
     load_from_file()
     if not students:
         print("Empty list.")
@@ -58,12 +79,22 @@ def display_students():
     print(sep)
 
 def find_student_index_by_id(sid):
+    """_find_student_index_by_id_
+
+    Args:
+        sid (_str_): _just_string_id_
+
+    Returns:
+        _i/None_: _return_the_element_of_list_or_none_
+    """
     for i, s in enumerate(students):
         if s.get('id') == sid:
             return i
     return None
 
 def add_student():
+    """_add_student_
+    """
     sid = input("Enter Student ID: ").strip()
     if any(s.get('id') == sid for s in students):
         print("ID already exists.")
@@ -94,6 +125,8 @@ def add_student():
     print("Student added. (Not saved yet)")
 
 def update_student():
+    """_update_student_
+    """
     sid = input("Enter Student ID to update: ").strip()
     idx = find_student_index_by_id(sid)
     if idx is None:
@@ -118,6 +151,8 @@ def update_student():
     print("Update successful. (Not saved yet)")
 
 def delete_student():
+    """_delete_student_
+    """
     sid = input("Enter Student ID to delete: ").strip()
     idx = find_student_index_by_id(sid)
     if idx is None:
@@ -131,6 +166,8 @@ def delete_student():
         print("Cancelled.")
 
 def search_student():
+    """_search_student_
+    """
     key = input("Enter name (partial) or Student ID: ").strip().lower()
     results = []
     for s in students:
@@ -144,6 +181,8 @@ def search_student():
         print(f"{r.get('id')} | {r.get('name')} | {r.get('average'):.2f} | {r.get('rank')}")
 
 def sort_students():
+    """_sort_students_
+    """
     print("1. Sort by average score - descending")
     print("2. Sort by name A-Z")
     c = input("Choose: ").strip()
@@ -157,6 +196,11 @@ def sort_students():
     print("Sorted. (Not saved yet)")
 
 def statistics():
+    """_statistics_
+
+    Returns:
+        _dict_: _return_the_statistic_of_rank_
+    """
     if not students:
         print("Empty list.")
         return
@@ -173,6 +217,8 @@ def statistics():
     return {'Excellent': excellent, 'Good': good, 'Average': average, 'Poor': poor}
 
 def draw_chart():
+    """_draw_chart_
+    """
     stats = statistics()
     if not stats:
         return
@@ -196,6 +242,8 @@ def draw_chart():
         print("Invalid choice.")
 
 def save_to_file():
+    """_save_to_file_
+    """
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump({'students': students}, f, indent=4, ensure_ascii=False)
     print("Data saved successfully.")
