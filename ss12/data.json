@@ -1,3 +1,13 @@
 {
-    "students": []
+    "students": [
+        {
+            "id": "S001",
+            "name": "Hello",
+            "math": 5.0,
+            "physics": 5.0,
+            "chemistry": 5.0,
+            "average": 5.0,
+            "rank": "Average"
+        }
+    ]
 }
